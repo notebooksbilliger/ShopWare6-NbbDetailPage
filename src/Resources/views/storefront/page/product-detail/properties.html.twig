@@ -2,26 +2,28 @@
 
 {% block page_product_detail_properties_table %}
     {% for set in page.extensions.groupedProperties.getGroups %}
-        <h3>{{ set.name }}</h3>
-        <table class="table table-striped product-detail-properties-table">
-            <tbody>
-            {% for option in set.properties %}
-                {% block page_product_detail_properties_table_row %}
-                    <tr class="properties-row">
-                        {% block page_product_detail_properties_item_label %}
-                            <th class="properties-label">{{ option.group.translated.name|e }}:</th>
-                        {% endblock %}
-                        {% block page_product_detail_properties_item_value %}
-                            <td class="properties-value">
-                                {% apply spaceless %}
-                                    {{ option.translated.name|e }}
-                                {% endapply %}
-                            </td>
-                        {% endblock %}
-                    </tr>
-                {% endblock %}
-            {% endfor %}
-            </tbody>
-        </table>
+        <div class="col">
+            <h3 class="row">{{ set.name }}</h3>
+            <table class="table table-striped product-detail-properties-table">
+                <tbody>
+                {% for option in set.properties %}
+                    {% block page_product_detail_properties_table_row %}
+                        <tr class="properties-row row">
+                            {% block page_product_detail_properties_item_label %}
+                                <th class="properties-label col-5 col-sm-3">{{ option.group.translated.name|e }}:</th>
+                            {% endblock %}
+                            {% block page_product_detail_properties_item_value %}
+                                <td class="properties-value col-7 col-sm-9">
+                                    {% apply spaceless %}
+                                        {{ option.translated.name|e }}
+                                    {% endapply %}
+                                </td>
+                            {% endblock %}
+                        </tr>
+                    {% endblock %}
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
     {% endfor %}
 {% endblock %}
