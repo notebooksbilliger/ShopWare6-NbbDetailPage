@@ -1,0 +1,24 @@
+{% sw_extends "@Storefront/storefront/page/product-detail/properties.html.twig" %}
+
+{% block page_product_detail_properties_table %}
+    {# {{ parent() }} #}
+
+    {% for set in page.extensions.groupedProperties.getGroups %}
+    <h3>{{ set.name }}</h3>
+        <table class="table table-striped product-detail-properties-table">
+            <tbody>
+            {% for option in set.properties %}
+                <tr class="properties-row">
+                    <th class="properties-label">{{ option.group.translated.name|e }}</th>
+                    <td class="properties-value">
+                        {% apply spaceless %}
+                            {{ option.translated.name }}
+                        {% endapply %}
+                    </td>
+
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% endfor %}
+{% endblock %}
