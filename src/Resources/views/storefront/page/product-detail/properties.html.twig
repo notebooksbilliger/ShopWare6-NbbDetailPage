@@ -15,16 +15,23 @@
                             {% block page_product_detail_properties_item_value %}
                                 <td class="properties-value col-7 col-sm-9">
                                     {% apply spaceless %}
-                                        {% block page_product_detail_properties_custom_fields %}
-                                            {% if option.translated.customFields and option.translated.customFields.name %}
-                                                <span
-                                                        class="properties-custom-field {{ option.translated.customFields.position == 'left' ? 'float-left pr-1' : 'float-right' }}">
-                                                    {{ option.translated.customFields.name|raw }}
+                                        {% block page_product_detail_properties_custom_fields_prefix %}
+                                            {% if option.translated.customFields and option.translated.customFields.nbb_property_option_prefix %}
+                                                <span class="properties-custom-field float-left pr-1">
+                                                    {{ option.translated.customFields.nbb_property_option_prefix.name|raw }}
                                                 </span>
                                             {% endif %}
                                         {% endblock %}
 
                                         {{ option.translated.name|e }}
+
+                                        {% block page_product_detail_properties_custom_fields_postfix %}
+                                            {% if option.translated.customFields and option.translated.customFields.nbb_property_option_postfix %}
+                                                <span class="properties-custom-field float-right">
+                                                    {{ option.translated.customFields.nbb_property_option_postfix.name|raw }}
+                                                </span>
+                                            {% endif %}
+                                        {% endblock %}
                                     {% endapply %}
                                 </td>
                             {% endblock %}
