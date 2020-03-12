@@ -1,6 +1,7 @@
+
 {
-  "name": "swag/plugin-skeleton",
-  "description": "Skeleton plugin",
+  "name": "nbb/detail-page",
+  "description": "Detail page extensions",
   "type": "shopware-platform-plugin",
   "license": "MIT",
   "autoload": {
@@ -11,8 +12,8 @@
   "extra": {
     "shopware-plugin-class": "NbbDetailPage\\NbbDetailPage",
     "label": {
-      "de-DE": "Skeleton plugin",
-      "en-GB": "Skeleton plugin"
+      "de-DE": "Erweiterungen Detailseite",
+      "en-GB": "Detail page extensions"
     }
   }
 }
