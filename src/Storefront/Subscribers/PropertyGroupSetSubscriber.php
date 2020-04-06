@@ -31,13 +31,14 @@ class PropertyGroupSetSubscriber implements EventSubscriberInterface
         $groupedProperties = [];
 
         /** @var PropertyGroupOptionEntity $property */
-        foreach($properties as $property)
-        {
-            $groupSet = $property->getGroup()->getTranslated()['customFields'][self::CUSTOM_FIELD_PROPERTY_SET];
+        foreach ($properties as $property) {
+            $groupSet = $property->getGroup()->getTranslated()['customFields'][self::CUSTOM_FIELD_PROPERTY_SET] ?? null;
 
-            $groupedProperties[$groupSet['id']][self::CUSTOM_FIELD_PROPERTY_SET_NAME] = $groupSet[self::CUSTOM_FIELD_PROPERTY_SET_NAME];
-            $groupedProperties[$groupSet['id']][self::CUSTOM_FIELD_PROPERTY_SET_PROPERTIES][] = $property;
-
+            if ($groupSet !== null) {
+                $groupedProperties[$groupSet['id']][self::CUSTOM_FIELD_PROPERTY_SET_NAME] =
+                    $groupSet[self::CUSTOM_FIELD_PROPERTY_SET_NAME];
+                $groupedProperties[$groupSet['id']][self::CUSTOM_FIELD_PROPERTY_SET_PROPERTIES][] = $property;
+            }
         }
 
         $productPage->addExtension('groupedProperties', new GroupedPropertiesStruct($groupedProperties));
