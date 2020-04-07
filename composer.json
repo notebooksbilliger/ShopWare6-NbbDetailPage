@@ -2,6 +2,7 @@
 {
   "name": "nbb/detail-page",
   "description": "Detail page extensions",
+  "version": "1.0.1",
   "type": "shopware-platform-plugin",
   "license": "MIT",
   "autoload": {
