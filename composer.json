@@ -2,7 +2,7 @@
 {
   "name": "nbb/detail-page",
   "description": "Detail page extensions",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "type": "shopware-platform-plugin",
   "license": "MIT",
   "autoload": {
@@ -10,6 +10,14 @@
       "NbbDetailPage\\": "src/"
     }
   },
+  "conflict": {
+    "nps-international/main-theme": "<=v1.0.7"
+  },
+  "authors": [
+    {
+      "name": "notebooksbilliger.de AG"
+    }
+  ],
   "extra": {
     "shopware-plugin-class": "NbbDetailPage\\NbbDetailPage",
     "label": {
