@@ -17,9 +17,13 @@
                                     {% apply spaceless %}
                                         {% block page_product_detail_properties_custom_fields_prefix %}
                                             {% if option.translated.customFields and option.translated.customFields.nbb_property_option_prefix %}
-                                                <span class="properties-custom-field float-left pr-1">
-                                                    {{ option.translated.customFields.nbb_property_option_prefix.name|raw }}
-                                                </span>
+                                                {% if option.translated.customFields.nbb_property_option_prefix.name|raw == 'checkmark' %}
+                                                    {% sw_icon 'checkmark-circle' style { 'size': 'sm', 'class': 'nps-checkmark' } %}
+                                                {% else %}
+                                                    <span class="properties-custom-field float-left pr-1">
+                                                        {{ option.translated.customFields.nbb_property_option_prefix.name|raw }}
+                                                    </span>
+                                                {% endif %}
                                             {% endif %}
                                         {% endblock %}
 
