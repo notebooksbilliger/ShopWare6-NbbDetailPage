@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace NbbDetailPage\Storefront\Subscribers;
 
 use NbbDetailPage\Storefront\Struct\GroupedPropertiesStruct;
