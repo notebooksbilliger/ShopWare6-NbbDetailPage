@@ -24,7 +24,7 @@ class PropertyGroupSetSubscriber implements EventSubscriberInterface
         ];
     }
 
-    public function productPageLoaded(ProductPageLoadedEvent $event)
+    public function productPageLoaded(ProductPageLoadedEvent $event): void
     {
         $productPage = $event->getPage();
 
